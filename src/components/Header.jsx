@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-unused-vars
 import React, {useState} from 'react'
-import { FaMapMarker } from "react-icons/fa";
 import { CiMenuBurger } from "react-icons/ci";
 import { CgClose } from "react-icons/cg";
 
@@ -9,9 +8,8 @@ const Header = () => {
   return (
     <header className='flex items-center justify-between xl:justify-start w-full py-4 px-8 h-[10vh] z-50'>
         <div className='xl:w-1/6 text-center -mt-4'>
-            <a href='#' className='text-2xL font-bold text-center relative'>
-                ESCOM Student Connect <span className='text-primary text-3xl'>.</span>{" "}
-                <FaMapMarker className='absolute -right-0.5 -top-2 text-primary' style={{zIndex: 10}} />
+            <a href='#' className='text-2xL font-bold text-center relative '>
+                Student Connect <span className='text-primary text-3xl'>.</span>{" "}
             </a>
         </div>
         <nav className={`fixed bg-white w-[80%] md:w-[40%] xl:w-full h-full ${showMenu ? 'left-0' : '-left-full'} 
