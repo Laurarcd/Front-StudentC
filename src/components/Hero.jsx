@@ -3,6 +3,7 @@ import React from 'react'
 import { VscArrowSmallRight } from "react-icons/vsc";
 
 const Hero = () => {
+  const video = 'Ruta.mp4'
   return (
     <section className='min-h-[90vh] grid grid-cols-1 xl:grid-cols-8'> 
     <div className='md:col-span-5 flex items-center justify-center p-8 xl:p-14'>
@@ -27,7 +28,12 @@ const Hero = () => {
       </div>
     </div>    
       <div className='md:col-span-3 flex items-center justify-center'> 
-        <img src='Mapa.png' className='object-cover'/>
+        
+      <video className='md:col-span-5 flex items-center justify-center p-8 xl:p-14' width="400" height="250" autoPlay muted loop>
+                <source src={video} type="video/mp4" />
+    
+       </video>
+
       </div>
 
     </section>
