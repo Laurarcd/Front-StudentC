@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header className='flex items-center justify-between xl:justify-start w-full py-4 px-8 h-[10vh] z-50'>
         <div className='xl:w-1/6 text-center -mt-4'>
-            <a href='#' className='text-2xL font-bold text-center relative '>
+            <a href='#' className='text-2xL font-bold text-center relative'>
                 Student Connect <span className='text-primary text-3xl'>.</span>{" "}
             </a>
         </div>
