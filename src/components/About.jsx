@@ -1,51 +1,49 @@
-import React from 'react'
+// eslint-disable-next-line no-unused-vars
+import React from 'react';
+import { FcInspection } from "react-icons/fc";
 
-const Card = ({ title, description, icon }) => {
+// eslint-disable-next-line react/prop-types
+const Card = ({ title, description, icon: Icon }) => {
     return (
-      <article className="border border-muted-foreground border-dashed p-5 rounded-lg flex flex-col items-center gap-y-5">
-        <img src={icon} alt={title} width={50} height={50} />
-        <h3 className="text-2xl font-medium text-center">{title}</h3>
-        <p className="text-muted-foreground line-clamp-3 text-center">{description}</p>
-      </article>
+        <article className='flex flex-col items-center justify-center p-4 rounded-xl border-2 border-primary border-dashed w-120 h-30'>
+            <div className='flex justify-center mb-2'>
+                <Icon size={40}/>  
+            </div>
+            <h3 className="text-xl font-medium text-center">{title}</h3> 
+            <p className="text-center">{description}</p>
+        </article>
     );
-  };
+};
 
-      const About = () => {
-        return (
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
-            <Card
-              icon="/icons/time-management.png"
-              title="Gestión de cuenta"
-              description="Crear, optimizar y gestionar tu cuenta."
-            />
-            <Card
-              icon="/icons/workflow.png"
-              title="Configuración & Flujos de trabajo"
-              description="Publique ofertas de empleo atractivas y agilice su proceso de contratación."
-            />
-            <Card
-              icon="/icons/search-icon.png"
-              title="Buscar candidatos"
-              description="Atraer y captar el talento adecuado a través de todos los canales adecuados."
-            />
-            <Card
-              icon="/icons/api.png"
-              title="Integraciones de APIS"
-              description="Explore integraciones perfectas y potentes funciones de API."
-            />
-            <Card
-              icon="/icons/hire.png"
-              title="Seguimiento, evaluación y contratación"
-              description="Interactúe con candidatos y colegas para lograr una gran contratación."
-            />
-            <Card
-              icon="/icons/employees-management.png"
-              title="Gestión de empleados"
-              description="Incorpore a sus nuevas contrataciones y gestione a sus empleados."
-            />
-          </div>
-
-        );
-    };
+const About = () => {
+    return (
+        <div>
+            <div className="w-full bg-gray-200">
+                <h2 className="text-2xl text-primary font-bold text-center py-6">
+                    ¿Cómo funciona Student Connect?
+                </h2>
+            </div>
+            <div className="flex items-center justify-center p-8 xl:p-14">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                    <Card
+                        icon={FcInspection}
+                        title="Paso 1"
+                        description="Crea una cuenta en Student Connect proporcionando tu información básica, como nombre, correo institucional y contraseña"
+                    />
+                    <Card
+                        icon={FcInspection}
+                        title="Paso 2"
+                        description="Configura tu perfil agregando detalles adicionales que te identifiquen dentro de la comunidad."
+                    />
+                    <Card
+                        icon={FcInspection}
+                        title="Paso 3"
+                        description="Explora y únete a rutas existentes o crea nuevas rutas compartidas con otros estudiantes."
+                    />
+                </div>
+            </div>
+        </div>
+    );
+};
 
 export default About;
