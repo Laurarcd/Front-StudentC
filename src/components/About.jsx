@@ -1,49 +1,28 @@
-// eslint-disable-next-line no-unused-vars
-import React from 'react';
-import { FcInspection } from "react-icons/fc";
-
-// eslint-disable-next-line react/prop-types
-const Card = ({ title, description, icon: Icon }) => {
-    return (
-        <article className='flex flex-col items-center justify-center p-4 rounded-xl border-2 border-primary border-dashed w-120 h-30'>
-            <div className='flex justify-center mb-2'>
-                <Icon size={40}/>  
-            </div>
-            <h3 className="text-xl font-medium text-center">{title}</h3> 
-            <p className="text-center">{description}</p>
-        </article>
-    );
-};
+import React from 'react'
 
 const About = () => {
-    return (
-        <div>
-            <div className="w-full bg-gray-200">
-                <h2 className="text-2xl text-primary font-bold text-center py-6">
-                    ¿Cómo funciona Student Connect?
-                </h2>
-            </div>
-            <div className="flex items-center justify-center p-8 xl:p-14">
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-                    <Card
-                        icon={FcInspection}
-                        title="Paso 1"
-                        description="Crea una cuenta en Student Connect proporcionando tu información básica, como nombre, correo institucional y contraseña"
-                    />
-                    <Card
-                        icon={FcInspection}
-                        title="Paso 2"
-                        description="Configura tu perfil agregando detalles adicionales que te identifiquen dentro de la comunidad."
-                    />
-                    <Card
-                        icon={FcInspection}
-                        title="Paso 3"
-                        description="Explora y únete a rutas existentes o crea nuevas rutas compartidas con otros estudiantes."
-                    />
+  return (
+
+            <div className="container mx-auto px-4">
+                <div className="flex flex-wrap">
+                    <div className="w-full md:w-1/2">
+                        <img src="Carpool.jpg"/>
+                    </div>
+                    <div className="w-full md:w-1/2">
+                        <div className="px-4">
+                            <h2 className="text-2xl text-primary font-bold mt-0 mb-2">¿Cómo funciona Student Connect? </h2>
+                            <h3 className="text-xl font-bold mt-4 mb-2">Why Choose Us?</h3>
+                            <div className="list-disc space-y-2 pl-5">
+                                <div className="text-base">Lorem ipsum dolor sit amet</div>
+                                <div className="text-base">Tempor incididunt ut labore</div>
+                                <div className="text-base">Lorem ipsum dolor sit amet</div>
+                                <div className="text-base">Incididunt ut labore</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    );
-};
+        );
+    };
 
 export default About;
