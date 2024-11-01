@@ -2,26 +2,19 @@ import React from 'react'
 
 const About = () => {
   return (
+<div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center p-8 xl:p-14">
+    <div className="md:col-span-1 flex justify-center">
+        <img src="Carpool.jpg" className="w-full h-auto object-cover"/>
+    </div>
+    <div className='md:col-span-1'>
+        <div className="text-center mt-4 md:mt-[-170px]">
+            <h2 className="text-2xl text-primary font-bold">¿Qué es?</h2>
+            <p className="py-2 md:py-4">Descripción sobre qué es el servicio o producto, explicando de manera breve y concisa para que los usuarios comprendan fácilmente.</p>
+        </div>
+    </div>
+</div>
 
-            <div className="container mx-auto px-4">
-                <div className="flex flex-wrap">
-                    <div className="w-full md:w-1/2">
-                        <img src="Carpool.jpg"/>
-                    </div>
-                    <div className="w-full md:w-1/2">
-                        <div className="px-4">
-                            <h2 className="text-2xl text-primary font-bold mt-0 mb-2">¿Cómo funciona Student Connect? </h2>
-                            <h3 className="text-xl font-bold mt-4 mb-2">Why Choose Us?</h3>
-                            <div className="list-disc space-y-2 pl-5">
-                                <div className="text-base">Lorem ipsum dolor sit amet</div>
-                                <div className="text-base">Tempor incididunt ut labore</div>
-                                <div className="text-base">Lorem ipsum dolor sit amet</div>
-                                <div className="text-base">Incididunt ut labore</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         );
     };
 

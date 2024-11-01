@@ -15,7 +15,7 @@ const Card = ({ title, description, icon: Icon }) => {
     );
 };
 
-const About = () => {
+const Steps = () => {
     return (
         <div>
             <div className="w-full bg-gray-200">
