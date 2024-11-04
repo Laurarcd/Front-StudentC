@@ -9,7 +9,7 @@ const About = () => {
     </div>
     <div className='md:col-span-1'>
         <div className="text-center mt-4 md:mt-[-170px]">
-            <h2 className="text-4xl text-primary font-bold ">Sobre nosotros</h2>
+            <h2 className="text-4xl text-secundary font-bold ">Sobre nosotros</h2>
             <p className=" text-base sm:text-lg md:text-2xl py-2 md:py-4 text-justify">
                 &quot; Student Connect &quot; es una iniciativa que responde a la necesidad de opciones de transporte más seguras y económicas,para la comunidad estudiantil de la ESCOM. 
                 La aplicación permite a los usuarios registrarse como conductores o pasajeros, compartir rutas, y realizar reservas de viajes. 

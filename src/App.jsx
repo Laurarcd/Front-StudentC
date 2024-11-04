@@ -3,6 +3,7 @@ import Hero from "./components/Hero"
 import Steps from "./components/Steps"
 import About from "./components/About"
 import Requirements from "./components/Requirements"
+import Footer from "./components/Footer"
 function App() {
 
   return (
@@ -13,6 +14,7 @@ function App() {
         <About/>
         <Steps/>
         <Requirements/>
+        <Footer/>
       </div>
   )
 }

@@ -19,8 +19,8 @@ const Card = ({ title, description, imageSrc }) => {
 const Steps = () => {
     return (
         <div>
-            <div className="w-full bg-gray-100">
-                <h2 className="text-4xl text-primary font-bold text-center py-6 ">
+            <div className="">
+                <h2 className="text-4xl text-secundary font-bold text-center  ">
                     Características
                 </h2>
             </div>
