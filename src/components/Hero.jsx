@@ -5,8 +5,8 @@ import { VscArrowSmallRight } from "react-icons/vsc";
 const Hero = () => {
   const video = 'Ruta.mp4'
   return (
-    <section className='min-h-[90vh] grid grid-cols-1 xl:grid-cols-8'> 
-    <div className='md:col-span-5 flex items-center justify-center p-8 xl:p-14'>
+    <div className="flex flex-col lg:flex-row w-full h-screen">      
+      <div className="w-full lg:w-2/3 flex items-center justify-center h-full p-8">
       <div className='flex flex-col gap-3'>
         <h1 className='text-7xl font-bold leading-[9rem]'> 
           
@@ -26,17 +26,25 @@ const Hero = () => {
             <button className='w-full xl:w-auto items-center bg-gray-300 text-white py-3 px-12 rounded-xl text-xl '> Conócenos </button>
           </div>
       </div>
-    </div>    
-      <div className='md:col-span-3 flex items-center justify-center'> 
-        
-      <video className='md:col-span-5 flex items-center justify-center p-8 xl:p-14' width="400" height="250" autoPlay muted loop>
+        </div>
+          {/* Contenedor de lado derecho */}
+    <div className="hidden lg:flex h-full w-1/3 items-center justify-center">
+
+    <video className='md:col-span-5 flex items-center justify-center w-full h-[88%]' autoPlay muted loop>
                 <source src={video} type="video/mp4" />
     
        </video>
 
-      </div>
-
-    </section>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    </div> 
+      
   )
 }
 

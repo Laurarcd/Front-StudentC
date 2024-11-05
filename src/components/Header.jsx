@@ -5,19 +5,21 @@ import { CgClose } from 'react-icons/cg';
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
-  
+
   return (
-    <header className="flex items-center justify-between xl:justify-start w-full py-4 px-8 h-[10vh] z-50">
-      <div className="xl:w-1/6 text-center -mt-4">
+    <header className="flex items-center justify-between xl:justify-center w-full py-4 px-8 h-[10vh] z-50">
+      {/* Logo: Solo visible cuando el menú está cerrado en modo móvil */}
+      <div className={`xl:w-1/6 text-center -mt-4 ${showMenu ? 'hidden' : 'block'}`}>
         <a href="#" className="text-2xL font-bold text-center relative">
           Student Connect <span className="text-secundary text-3xl">.</span>{' '}
         </a>
       </div>
+      
+      {/* Menú: ocupa una parte de la pantalla en modo móvil */}
       <nav
-        className={`fixed bg-white w-[80%] md:w-[40%] xl:w-full h-full ${
-          showMenu ? 'left-0' : '-left-full'
-        } top-0 xl:static flex-1 flex flex-col xl:flex-row items-center justify-center gap-10 transition-all duration-500`}
-        
+        className={`fixed top-0 left-0 w-[80%] md:w-[50%] h-full bg-white z-40 flex flex-col items-center justify-center gap-5 transition-all duration-500 ${
+          showMenu ? 'block' : 'hidden'
+        } xl:flex xl:static xl:w-auto xl:h-auto xl:flex-row xl:bg-transparent`}
       >
         <a
           href="#"
@@ -50,9 +52,11 @@ const Header = () => {
           Rutas
         </a>
       </nav>
+
+      {/* Botón de menú */}
       <button
         onClick={() => setShowMenu(!showMenu)}
-        className="xl:hidden text-2xl p-2"
+        className="xl:hidden text-2xl p-2 z-50"
       >
         {showMenu ? <CgClose /> : <CiMenuBurger />}
       </button>

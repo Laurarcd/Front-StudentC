@@ -24,6 +24,9 @@ const Requirements = () => {
                     <p className="text-gray-700 font-semibold">Compromiso de seguir las normas de seguridad y conducta durante el uso de la plataforma</p>
                 </div>
             </div>
+            <div>
+            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1tgwENBe3A5jEVFB120gsemLjeDdbjfI&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
+            </div>
         </div>
     );
 };
