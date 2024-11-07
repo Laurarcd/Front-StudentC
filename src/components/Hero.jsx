@@ -14,7 +14,7 @@ const Hero = () => {
 
         </h1>
           <p className='text-secundary font-bold text-3xl -px-2 '>
-          Redescubre cómo moverte con Student Connect 
+          Redescubre como moverte con Student Connect 
           </p>
           <p className='text-grey-900'>
           La convivencia se une a la comodidad en una 

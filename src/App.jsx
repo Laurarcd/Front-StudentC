@@ -4,6 +4,7 @@ import Steps from "./components/Steps"
 import About from "./components/About"
 import Requirements from "./components/Requirements"
 import Footer from "./components/Footer"
+import Forms from "./components/Forms"
 function App() {
 
   return (
@@ -14,6 +15,7 @@ function App() {
         <About/>
         <Steps/>
         <Requirements/>
+        <Forms/>
         <Footer/>
       </div>
   )

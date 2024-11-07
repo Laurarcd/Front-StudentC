@@ -7,19 +7,9 @@ const Footer = () => {
     <footer className="bg-gradient-to-r from-secundary to-primary text-white pt-10 pb-6">
       <div className="container mx-auto px-6 lg:px-20">
         <div className="flex flex-col lg:flex-row lg:justify-between gap-y-10">
-          {/* Links Section */}
-          <div>
-            <h2 className="text-xl font-semibold mb-4">Links</h2>
-            <ul className="space-y-2">
-              <li><a href="#" className="hover:underline">About Us</a></li>
-              <li><a href="#" className="hover:underline">Categories</a></li>
-              <li><a href="#" className="hover:underline">Services List</a></li>
-            </ul>
-          </div>
-
           {/* Account Section */}
           <div>
-            <h2 className="text-xl font-semibold mb-4">Account</h2>
+            <h2 className="text-xl font-semibold mb-4">Cuenta</h2>
             <ul className="space-y-2">
               <li><a href="#" className="hover:underline flex items-center gap-2"><FaUser /> Inicia Sesión</a></li>
               <li><a href="#" className="hover:underline flex items-center gap-2"><FaLock /> Registro </a></li>
