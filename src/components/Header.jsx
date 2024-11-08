@@ -1,65 +1,116 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CiMenuBurger } from 'react-icons/ci';
 import { CgClose } from 'react-icons/cg';
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 20;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [scrolled]);
+
+  const handleNavClick = (e, id) => {
+    e.preventDefault();
+    setShowMenu(false);
+    
+    const element = document.querySelector(id);
+    const headerOffset = 100;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  };
 
   return (
-    <header className="flex items-center justify-between xl:justify-center w-full py-4 px-8 h-[10vh] z-50">
-      {/* Logo: Solo visible cuando el menú está cerrado en modo móvil */}
-      <div className={`xl:w-1/6 text-center -mt-4 ${showMenu ? 'hidden' : 'block'}`}>
-        <a href="#" className="text-2xL font-bold text-center relative">
-          Student Connect <span className="text-secundary text-3xl">.</span>{' '}
-        </a>
-      </div>
-      
-      {/* Menú: ocupa una parte de la pantalla en modo móvil */}
-      <nav
-        className={`fixed top-0 left-0 w-[80%] md:w-[50%] h-full bg-white z-40 flex flex-col items-center justify-center gap-5 transition-all duration-500 ${
-          showMenu ? 'block' : 'hidden'
-        } xl:flex xl:static xl:w-auto xl:h-auto xl:flex-row xl:bg-transparent`}
-      >
-        <a
-          href="#"
-          className="text-secundary border border-secundary/10 bg-transparent py-2 px-5 rounded transition-colors hover:bg-secundary hover:text-white"
-        >
-          Inicio
-        </a>
-        <a
-          href="#"
-          className="text-secundary border border-secundary/10 bg-transparent py-2 px-5 rounded transition-colors hover:bg-secundary hover:text-white"
-        >
-          Sobre nosotros
-        </a>
-        <a
-          href="#"
-          className="text-secundary border border-secundary/10 bg-transparent py-2 px-5 rounded transition-colors hover:bg-secundary hover:text-white"
-        >
-          Características
-        </a>
-        <a
-          href="#"
-          className="text-secundary border border-secundary/10 bg-transparent py-2 px-5 rounded transition-colors hover:bg-secundary hover:text-white"
-        >
-          Requisitos
-        </a>
-        <a
-          href="#"
-          className="text-secundary border border-secundary/10 bg-transparent py-2 px-5 rounded transition-colors hover:bg-secundary hover:text-white"
-        >
-          Rutas
-        </a>
-      </nav>
+    <header 
+      className={`fixed top-0 left-0 right-0 w-full py-6 md:py-4 px-6 md:px-8 h-[10vh] z-50 transition-all duration-300 ${
+        scrolled ? 'bg-white shadow-md' : 'bg-white/90 backdrop-blur-sm'
+      }`}
+    >
+      <div className="container mx-auto flex items-center justify-between xl:justify-between">
+        {/* Logo */}
+        <div className="w-auto xl:w-1/6">
+          <a 
+            href="#inicio" 
+            onClick={(e) => handleNavClick(e, '#inicio')} 
+            className="text-xl md:text-2xl font-bold relative flex items-center"
+          >
+            Student Connect <span className="text-secundary text-3xl">.</span>
+          </a>
+        </div>
 
-      {/* Botón de menú */}
-      <button
-        onClick={() => setShowMenu(!showMenu)}
-        className="xl:hidden text-2xl p-2 z-50"
-      >
-        {showMenu ? <CgClose /> : <CiMenuBurger />}
-      </button>
+        {/* Menú Desktop */}
+        <nav className="hidden xl:flex xl:justify-center xl:flex-1">
+          <div className="flex items-center gap-5">
+            {[
+              { href: '#inicio', text: 'Inicio' },
+              { href: '#sobre-nosotros', text: 'Sobre nosotros' },
+              { href: '#caracteristicas', text: 'Características' },
+              { href: '#requisitos', text: 'Requisitos' },
+              { href: '#contacto', text: 'Contacto' }
+            ].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="text-secundary text-sm border border-secundary/10 
+                bg-transparent py-2 px-5 rounded transition-colors hover:bg-secundary 
+                hover:text-white"
+              >
+                {item.text}
+              </a>
+            ))}
+          </div>
+        </nav>
+
+        {/* Botón de menú móvil */}
+        <button
+          onClick={() => setShowMenu(!showMenu)}
+          className="xl:hidden flex flex-col justify-center gap-1.5 p-2 z-50"
+          aria-label="Menu"
+        >
+          <div className={`w-6 h-0.5 bg-black transition-all duration-300 ${showMenu ? 'rotate-45 translate-y-2' : ''}`}></div>
+          <div className={`w-6 h-0.5 bg-black transition-all duration-300 ${showMenu ? 'opacity-0' : ''}`}></div>
+          <div className={`w-6 h-0.5 bg-black transition-all duration-300 ${showMenu ? '-rotate-45 -translate-y-2' : ''}`}></div>
+        </button>
+
+        {/* Menú Móvil */}
+        <nav
+          className={`xl:hidden fixed top-0 left-0 w-full h-screen bg-white z-40 
+          flex flex-col items-center justify-center gap-8 transition-all duration-500 
+          ${showMenu ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
+        >
+          {[
+            { href: '#inicio', text: 'Inicio' },
+            { href: '#sobre-nosotros', text: 'Sobre nosotros' },
+            { href: '#caracteristicas', text: 'Características' },
+            { href: '#requisitos', text: 'Requisitos' },
+            { href: '#contacto', text: 'Contacto' }
+          ].map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={(e) => handleNavClick(e, item.href)}
+              className="text-secundary text-xl w-auto text-center 
+              transition-colors hover:text-secundary/70"
+            >
+              {item.text}
+            </a>
+          ))}
+        </nav>
+      </div>
     </header>
   );
 };

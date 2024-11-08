@@ -30,7 +30,7 @@ const Hero = () => {
           {/* Contenedor de lado derecho */}
     <div className="hidden lg:flex h-full w-1/3 items-center justify-center">
 
-    <video className='md:col-span-5 flex items-center justify-center w-full h-[88%]' autoPlay muted loop>
+    <video className='md:col-span-5 flex items-center justify-center w-full h-[75%]' autoPlay muted loop>
                 <source src={video} type="video/mp4" />
     
        </video>
