@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { CiMenuBurger } from 'react-icons/ci';
-import { CgClose } from 'react-icons/cg';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,48 +19,55 @@ const Header = () => {
   }, [scrolled]);
 
   const handleNavClick = (e, id) => {
-    e.preventDefault();
-    setShowMenu(false);
-    
-    const element = document.querySelector(id);
-    const headerOffset = 100;
-    const elementPosition = element.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    // Solo aplicar scroll si estamos en la página principal
+    if (location.pathname === '/') {
+      e.preventDefault();
+      setShowMenu(false);
+      
+      const element = document.querySelector(id);
+      if (element) {
+        const headerOffset = 100;
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    });
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
   };
+
+  // Solo mantenemos los enlaces de scroll
+  const navLinks = [
+    { href: '#inicio', text: 'Inicio' },
+    { href: '#sobre-nosotros', text: 'Sobre nosotros' },
+    { href: '#caracteristicas', text: 'Características' },
+    { href: '#requisitos', text: 'Requisitos' },
+    { href: '#contacto', text: 'Contacto' }
+  ];
 
   return (
     <header 
       className={`fixed top-0 left-0 right-0 w-full py-6 md:py-4 px-6 md:px-8 h-[10vh] z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-md' : 'bg-white/90 backdrop-blur-sm'
+        scrolled ? 'bg-white shadow-md' : 'bg-white/90'
       }`}
     >
       <div className="container mx-auto flex items-center justify-between xl:justify-between">
         {/* Logo */}
         <div className="w-auto xl:w-1/6">
-          <a 
-            href="#inicio" 
-            onClick={(e) => handleNavClick(e, '#inicio')} 
+          <Link 
+            to="/"
             className="text-xl md:text-2xl font-bold relative flex items-center"
           >
             Student Connect <span className="text-secundary text-3xl">.</span>
-          </a>
+          </Link>
         </div>
 
         {/* Menú Desktop */}
         <nav className="hidden xl:flex xl:justify-center xl:flex-1">
           <div className="flex items-center gap-5">
-            {[
-              { href: '#inicio', text: 'Inicio' },
-              { href: '#sobre-nosotros', text: 'Sobre nosotros' },
-              { href: '#caracteristicas', text: 'Características' },
-              { href: '#requisitos', text: 'Requisitos' },
-              { href: '#contacto', text: 'Contacto' }
-            ].map((item) => (
+            {navLinks.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
@@ -92,13 +99,7 @@ const Header = () => {
           flex flex-col items-center justify-center gap-8 transition-all duration-500 
           ${showMenu ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}
         >
-          {[
-            { href: '#inicio', text: 'Inicio' },
-            { href: '#sobre-nosotros', text: 'Sobre nosotros' },
-            { href: '#caracteristicas', text: 'Características' },
-            { href: '#requisitos', text: 'Requisitos' },
-            { href: '#contacto', text: 'Contacto' }
-          ].map((item) => (
+          {navLinks.map((item) => (
             <a
               key={item.href}
               href={item.href}
