@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaFacebookF, FaInstagram, FaUser, FaLock } from 'react-icons/fa';
 
 const Footer = () => {
@@ -11,20 +12,34 @@ const Footer = () => {
           <div>
             <h2 className="text-xl font-semibold mb-4">Cuenta</h2>
             <ul className="space-y-2">
-              <li><a href="#" className="hover:underline flex items-center gap-2"><FaUser /> Inicia Sesión</a></li>
-              <li><a href="#" className="hover:underline flex items-center gap-2"><FaLock /> Registro </a></li>
+              <li>
+                <Link to="/login" className="hover:underline flex items-center gap-2">
+                  <FaUser /> Inicia Sesión
+                </Link>
+              </li>
+              <li>
+                <Link to="/registro" className="hover:underline flex items-center gap-2">
+                  <FaLock /> Registro 
+                </Link>
+              </li>
             </ul>
           </div>
-
           {/* Legal Section */}
           <div>
             <h2 className="text-xl font-semibold mb-4">Legal</h2>
             <ul className="space-y-2">
-              <li><a href="#" className="hover:underline">Términos y Condiciones</a></li>
-              <li><a href="#" className="hover:underline">Politica De Privacidad</a></li>
+              <li>
+                <Link to="/terminos" className="hover:underline">
+                  Términos y Condiciones
+                </Link>
+              </li>
+              <li>
+                <Link to="/privacidad" className="hover:underline">
+                  Politica De Privacidad
+                </Link>
+              </li>
             </ul>
           </div>
-
           {/* Social Links */}
           <div>
             <h2 className="text-xl font-semibold mb-4">Redes Sociales</h2>
@@ -38,10 +53,8 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
         {/* Divider */}
         <hr className="my-8 border-t border-gray-200 opacity-50" />
-
         {/* Copyright Section */}
         <div className="text-center text-sm">
           <p>Copyright © 2024. All Rights Reserved.</p>
