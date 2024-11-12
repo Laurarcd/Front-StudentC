@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Steps from './components/Steps';
 import Requirements from './components/Requirements';
+import Testimonial from './components/Testimonials';
 import Forms from './components/Forms';
 import Footer from './components/Footer';
 import Terminos from './components/Pages/Terminos';
@@ -16,6 +17,7 @@ function HomePage() {
       <div id="sobre-nosotros"><About /></div>
       <div id="caracteristicas"><Steps /></div>
       <div id="requisitos"><Requirements /></div>
+      <div id="testimonial"><Testimonial /></div>
       <div id="contacto"><Forms /></div>
     </>
   );
