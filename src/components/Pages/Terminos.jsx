@@ -1,4 +1,4 @@
-// src/components/Pages/Terminos.jsx
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -31,15 +31,14 @@ const Terminos = () => {
             <h1 className="text-3xl font-bold text-gray-800 mb-6">
               Términos y Condiciones
             </h1>
-
-            <div className="space-y-6 text-gray-600">
+            <div className="space-y-6 text-gray-600 text-justify">
               <section>
                 <h2 className="text-xl font-semibold text-gray-800 mb-3">
                   1. Elegibilidad y registro
                 </h2>
                 <p className="mb-4 px-4">
-                    1.1 El servicio está exclusivamente disponible para estudiantes activos de la Escuela Superior de Cómputo 
-                    "ESCOM" del Instituto Politécnico Nacional "IPN".                
+                    El servicio está exclusivamente disponible para estudiantes activos de la Escuela Superior de Cómputo 
+                    "ESCOM" del Instituto Politécnico Nacional "IPN";               
                 </p>
 
                 <p className="mb-4 px-4">
@@ -60,13 +59,20 @@ const Terminos = () => {
                 <h2 className="text-xl font-semibold text-gray-800 mb-3">
                   2. Conductores
                 </h2>
-                <p className="mb-4 px-4">
-                  2.1 Obligaciones de conductor: 
+                <p className="mb-4 px-4 mt-4">
+                  2.1 Requisitos especificos: 
+                </p>
+                <ul className="list-disc pl-14 space-y-2">
+                  <li>Licencia de conducir vigente</li>
+                  <li>Documentación del vehículo actualizada</li>
+                  <li>Seguro de cobertura amplia del automóvil vigente.</li>
+                </ul>
+                <p className="mb-4 px-4 mt-4">
+                  2.2 Obligaciones de conductor: 
                 </p>
                 <ul className="list-disc pl-14 space-y-2">
                   <li>Publicar sus rutas semanales antes del sábado a las 10:00 p.m.</li>
                   <li>Mantener todos los documentos del vehículo vigentes y en orden.</li>
-                  <li>Contar con seguro de automóvil vigente.</li>
                   <li>Seguir estrictamente la ruta publicada en la aplicación.</li>
                   <li>Respetar un tiempo máximo de espera de 5 minutos en cada paradas.</li>
                 </ul>
@@ -87,30 +93,161 @@ const Terminos = () => {
                   3.1 Obligaciones del pasajero:
                 </p>
                 <ul className="list-disc pl-14 space-y-2">
-                  <li>Llegar puntualmente a la parada seleccionada.</li>
+                  <li>Llegar puntualmente a la parada designadas.</li>
                   <li>Realizar el pago en efectivo al finalizar el viaje.</li>
                   <li>Mantener un comportamiento respetuoso durante el trayecto.</li>
                   <li>Proporcionar una calificación y retroalimentación después del viaje.</li>
+                </ul>
+                <p className="mb-4 px-4 mt-4">
+                  3.2 Derechos del pasajero:
+                </p>
+                <ul className="list-disc pl-14 space-y-2">
+                  <li>Conocer la información del conductor y vehículo.</li>
+                  <li>Reportar cualquier incidente durante el servicio.</li>
+                  <li>Acceder al seguimiento en tiempo real del viaje.</li>
                 </ul>
               </section>
 
               <section>
                 <h2 className="text-xl font-semibold text-gray-800 mb-3">
-                  4. Propiedad Intelectual
+                  4. Sistema de Rutas y Reservas
                 </h2>
-                <p className="mb-4">
-                  Todo el contenido presente en este sitio web, incluyendo pero no limitado a textos, gráficos, logotipos, imágenes y software, está protegido por derechos de autor y otros derechos de propiedad intelectual.
+                <p className="mb-4 px-4 mt-4 ">
+                  4.1 Las rutas y paradas estas preestablecidas previamente por los conductores, estas se actualizan semanalmente de acuerdo al criterio del conductor.
+                </p>
+                <p className="mb-4 px-4">
+                  4.2 Las paradas son estrictamente y exclusivamente en
+                  lugares públicos, por ejemplo, una parada de Autobús, Camión, Microbús, Combi, RTP, Metrobús, 
+                  Metro, Cablebus, Trolebús, Tren Ligero, Suburbano.
+                </p>
+                <p className="mb-4 px-4">
+                  4.2 Las reservaciones pueden realizarce con anticipación dentro de la plataforma así mismo 
+                  se les pide considerar los siguientes criterios a continuación:
+                </p>
+                <ul className="list-disc pl-14 space-y-2">
+                  <li>Se debe especificar la parada de abordaje.</li>
+                  <li>Las reservas están sujetas a disponibilidad.</li>
+                </ul>
+                <p className="mb-4 px-4 mt-4 font-bold">
+                Los cambios de última hora pueden incurir en la calificación y baja/suspensión de la cuenta.
                 </p>
               </section>
 
               <section>
                 <h2 className="text-xl font-semibold text-gray-800 mb-3">
-                  5. Limitación de Responsabilidad
+                  5. Sistema de pago
                 </h2>
-                <p className="mb-4">
-                  En la máxima medida permitida por la ley aplicable, no seremos responsables por daños directos, indirectos, incidentales, consecuentes o punitivos resultantes del uso o la imposibilidad de uso de nuestros servicios.
+                <p className="mb-4 px-4 mt-4">
+                  El pago será exclusivamente en efectivo, este será validado por el conductor una vez finalizado el viaje.
+                </p>
+                <p className="mb-4 px-4">
+                  5.1 La tarifa base es proporcionada por el conductor, 
+                  el sistema calculará el costo proporcional por cada una de las paradas. 
+                  Los precios para cada parada serán razonables y justificados de acuerdo a la distancia. 
+                </p>
+              <p className="mb-4 px-4 mt-4 font-bold">
+                No se permiten cobros adicionales no autorizados.
+              </p>
+              </section>
+
+              <section>
+                <h2 className="text-xl font-semibold text-gray-800 mb-3">
+                  6. Sistema de calificaciones
+                </h2>
+                <p className="mb-4 px-4 mt-4">
+                  La evaluación será de manera mutua, es decir, conductores y pasajeros se calificaran mutuamente.
+                  La escala de evaluación será de 1 a 5 estrellas, de acuerdo al punto 2.2 de calificaciones, los conductores deberán tener una evaluación mínima de 2 estrellas. En caso de tener por debajo del 
+                  promedio, esto incurrira en una baja temporal/permanente del sistema. 
+                </p>
+                <p className="mb-4 px-4">
+                  6.1 En caso de cancelar una ruta o viaje, incurrirá en una penalización de .2 sobre la calificación
+                  para conductor/pasajero, según sea el caso.
                 </p>
               </section>
+
+              <section>
+                <h2 className="text-xl font-semibold text-gray-800 mb-3">
+                  7. Seguridad y privacidad
+                </h2>
+                <p className="mb-4 px-4 mt-4">
+                La verificación de identidad es obligatoria para los usuarios de Student Connect, sin importar su rol dentro del sistema.
+                
+                </p>
+                <p className="mb-4 px-4">
+                  7.1 Los viajes serán monitoreados en tiempo real por los usuarios,
+                  por cualquier incidente o falta de los mismos.
+                </p>
+                <p className="mb-4 px-4">
+                  7.2 Los datos recopilados y/o solicitados por Student Connect, son de uso exclusivo del sistema
+                  para la validación del registro, mismos que se rigen por el cumplimiento de las leyes de protección
+                  de datos en México. 
+                </p>
+                <p className="mb-4 px-4 mt-4 font-bold">
+                Usted puede consultar en cualquier momento nuestro Aviso de Privacidad
+                </p>
+              </section>
+
+              <section>
+                <h2 className="text-xl font-semibold text-gray-800 mb-3">
+                  8. Sanciones y suspensiones
+                </h2>
+                <ul className="list-disc pl-14 space-y-2">
+                  <li>Calificaciones consistentemente bajas.</li>
+                  <li>Incumplimiento de términos y condicione.</li>
+                  <li>Comportamiento inadecuado o peligroso.</li>
+                  <li>Reportes verificados de mal servicio.</li>
+                </ul>
+                <p className="mb-4 px-4 mt-4 font-bold">
+                El tipo de sanción dependerá de la severidad de la falta, estás pueden ser, advertencias y/o
+                suspención temporal o permanente del sistema 
+                </p>      
+              </section>
+
+              <section>
+                <h2 className="text-xl font-semibold text-gray-800 mb-3">
+                  9. Limitaciones de responsalibilidad
+                </h2>
+                <p className="mb-4 px-4 mt-4 ">
+                Student Connect actúa exclusivamente como una plataforma intermediaria que facilita la conexión entre estudiantes conductores y pasajeros de la ESCOM,
+                sin asumir responsabilidad directa sobre las interacciones o acontecimientos que surjan entre los usuarios.
+                <br/>Es importante destacar que la plataforma no se hace responsable por accidentes de tránsito, siendo estos responsabilidad exclusiva del conductor y 
+                quedando sujetos a las leyes de tránsito vigentes y a las coberturas de los seguros correspondientes.
+                <br/> Si bien nos esforzamos por mantener un servicio constante y confiable,
+                no podemos garantizar la disponibilidad ininterrumpida de la plataforma debido a actualizaciones técnicas, mantenimiento del sistema o factores externos fuera de nuestro control.
+                <br/> Student Connect no asume responsabilidad por eventos o circunstancias que puedan afectar la prestación del servicio, incluyendo pero no limitándose a: fallas técnicas o 
+                mecánicas de los vehículos, siendo estas responsabilidad exclusiva del conductor mantener su automóvil en óptimas condiciones; condiciones climatológicas adversas que puedan afectar la seguridad o puntualidad del servicio, en cuyo caso se recomienda 
+                a los usuarios ejercer su mejor 
+                juicio para determinar la viabilidad del viaje; problemas de conectividad o interrupciones 
+                en el servicio de internet que puedan 
+                afectar el funcionamiento de la aplicación o el 
+                seguimiento en tiempo real de las rutas; y cualquier disputa o desacuerdo personal que pueda surgir entre usuarios durante la prestación del servicio.
+                En estos casos, si bien la plataforma puede actuar como mediador inicial, la resolución final de estos conflictos recae directamente en las partes involucradas. 
+                <br/> Adicionalmente, Student Connect no asume responsabilidad por objetos personales olvidados durante los viajes; sin embargo, facilitamos la comunicación entre usuarios
+                para la posible recuperación de estos artículos, quedando la gestión y resolución de estas situaciones
+                bajo la responsabilidad directa de las partes involucradas.
+                </p>      
+              </section>
+
+              <section>
+                <h2 className="text-xl font-semibold text-gray-800 mb-3">
+                  10. Modificaciones a los Términos y Condiciones
+                </h2>
+                <p className="mb-4 px-4 mt-4 ">
+                Student Connect se reserva el derecho de actualizar o modificar estos términos y condiciones periódicamente para reflejar cambios en nuestro servicio, 
+                cumplir con nuevas disposiciones legales o mejorar la experiencia de nuestros usuarios. Cualquier modificación significativa en estos términos será notificada 
+                a través de un aviso visible en la plataforma y/o mediante un correo electrónico a la dirección registrada del usuario, con un mínimo de 15 días de anticipación 
+                a su entrada en vigor. La continuidad en el uso de nuestros servicios después de la fecha efectiva de cualquier modificación constituirá la aceptación tácita de 
+                los nuevos términos por parte del usuario. No obstante, si algún usuario no está de acuerdo con los cambios realizados, tiene el derecho de objetar las modificaciones
+                 y/o dar por terminado el uso del servicio antes de la fecha de entrada en vigor de dichos cambios, notificándolo a través de los canales oficiales de la plataforma.
+                </p>      
+              </section>
+
+              <p className="mb-4 mt-4 ">
+              Al utilizar Student Connect, usted acepta estos términos y condiciones en su totalidad. 
+              <br/> Si tienes alguna pregunta sobre estos Términos y Condiciones o dudas, reclamos o solicitudes con respecto a tu información, 
+              puedes ponerte en contacto con nosotros a través de redes sociales y página web.
+              </p>  
+
             </div>
 
             {/* Back to Home Button */}

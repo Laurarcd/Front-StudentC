@@ -7,6 +7,7 @@ import Requirements from './components/Requirements';
 import Forms from './components/Forms';
 import Footer from './components/Footer';
 import Terminos from './components/Pages/Terminos';
+import Priv from './components/Pages/Priv';
 
 function HomePage() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/terminos" element={<Terminos />} />
+          <Route path="/priv" element={<Priv/>} />
         </Routes>
         <Footer />
       </div>
