@@ -1,32 +1,140 @@
-// eslint-disable-next-line no-unused-vars
-import React from 'react';
-import { FaSchool, FaEnvelope, FaFileContract, FaShieldAlt } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+
+const RequirementCard = ({ front, back }) => {
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    const touchDevice = ('ontouchstart' in window) || 
+      (navigator.maxTouchPoints > 0) || 
+      (navigator.msMaxTouchPoints > 0);
+    setIsTouchDevice(touchDevice);
+  }, []);
+
+  const handleInteraction = () => {
+    if (isTouchDevice) {
+      setIsFlipped(!isFlipped);
+    }
+  };
+
+  return (
+    <div 
+      className="relative w-full h-[150px] sm:h-[120px] perspective-1000 group"
+      onMouseEnter={() => !isTouchDevice && setIsFlipped(true)}
+      onMouseLeave={() => !isTouchDevice && setIsFlipped(false)}
+      onClick={handleInteraction}
+      role="button"
+      tabIndex={0}
+      onKeyPress={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          handleInteraction();
+        }
+      }}
+    >
+      <div
+        className={`absolute w-full h-full transition-transform duration-1000 ease-in-out transform-style-3d 
+          ${isFlipped ? 'rotate-y-180' : ''} 
+          ${isTouchDevice ? 'cursor-pointer active:scale-95' : 'hover:shadow-lg'}
+        `}
+      >
+        {/* Frente de la tarjeta */}
+        <div className="absolute w-full h-full backface-hidden rounded-xl p-3 sm:p-4 bg-gray-100 flex items-center justify-center shadow-md">
+          <p className="text-xs sm:text-sm text-black-700 text-center font-medium">{front}</p>
+          {isTouchDevice && (
+            <div className="absolute bottom-2 right-2 text-[10px] text-gray-400">
+              Toca para más info
+            </div>
+          )}
+        </div>
+
+        {/* Reverso de la tarjeta */}
+        <div className="absolute w-full h-full backface-hidden rounded-xl p-3 sm:p-4 bg-teal-50/90 rotate-y-180 flex items-center justify-center shadow-md">
+          <p className="text-xs sm:text-sm text-gray-700 text-center">{back}</p>
+          {isTouchDevice && (
+            <div className="absolute bottom-2 right-2 text-[10px] text-gray-400">
+              Toca para volver
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Requirements = () => {
-    return (
-        <div className="bg-white p-10 mx-auto my-8">
-            <h2 className="text-secundary text-4xl font-bold mb-8 text-center">Requisitos</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div className="flex flex-col bg-blue-200 p-6 rounded-lg shadow-lg items-center text-center w-full ">
-                    <FaSchool className="text-secundary text-4xl mb-4" />
-                    <p className="text-gray-700 font-semibold">Ser estudiante activo de la ESCOM</p>
-                </div>
-                <div className="flex flex-col bg-blue-200 p-6 rounded-lg shadow-lg items-center text-center w-full">
-                    <FaEnvelope className="text-secundary text-4xl mb-4" />
-                    <p className="text-gray-700 font-semibold">Necesitas un correo institucional y boleta del IPN</p>
-                </div>
-                <div className="flex flex-col bg-blue-200 p-6 rounded-lg shadow-lg items-center text-center w-full">
-                    <FaFileContract className="text-secundary text-4xl mb-4" />
-                    <p className="text-gray-700 font-semibold">Al registrarte, aceptas nuestros términos y condiciones</p>
-                </div>
-                <div className="flex flex-col bg-blue-200 p-6 rounded-lg shadow-lg items-center text-center w-full ">
-                    <FaShieldAlt className="text-secundary text-4xl mb-4" />
-                    <p className="text-gray-700 font-semibold">Compromiso de seguir las normas de seguridad y conducta durante el uso de la plataforma</p>
-                </div>
-            </div>
-            
+  const conductorRequirements = [
+    {
+      front: "Ser estudiante activo de la ESCOM",
+      back: "Deberás presentar tu credencial vigente y tener un correo institucional activo"
+    },
+    {
+      front: "Documentos del vehículo en regla",
+      back: "Tarjeta de circulación vigente, verificación y seguro del auto actualizado"
+    },
+    {
+      front: "Aceptar términos y condiciones",
+      back: "Lee detenidamente nuestros términos y política de privacidad antes de registrarte"
+    },
+    {
+      front: "Seguir protocolo de seguridad",
+      back: "Respetar las normas de tránsito y seguir los lineamientos de seguridad establecidos"
+    }
+  ];
+
+  const pasajeroRequirements = [
+    {
+      front: "Ser estudiante activo de la ESCOM",
+      back: "Deberás presentar tu credencial vigente y tener un correo institucional activo"
+    },
+    {
+      front: "Correo institucional validado",
+      back: "El correo debe terminar en @alumno.ipn.mx y verificar el código enviado"
+    },
+    {
+      front: "Aceptar términos y condiciones",
+      back: "Lee detenidamente nuestros términos y política de privacidad antes de registrarte"
+    },
+    {
+      front: "Seguir protocolo de seguridad",
+      back: "Respetar los horarios establecidos y mantener un comportamiento adecuado"
+    }
+  ];
+
+  return (
+    <div className="w-full max-w-6xl mx-auto p-4 sm:p-8">
+      <h2 className="text-2xl sm:text-4xl text-secundary font-bold text-center mb-6 sm:mb-10">Requisitos</h2>
+      
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+        {/* Sección Conductor */}
+        <div className="rounded-xl bg-tertiary p-6 sm:p-8 shadow-lg">
+          <h3 className="text-lg sm:text-xl text-white font-semibold mb-4 sm:mb-6">Conductor</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            {conductorRequirements.map((req, index) => (
+              <RequirementCard 
+                key={`conductor-${index}`}
+                front={req.front}
+                back={req.back}
+              />
+            ))}
+          </div>
         </div>
-    );
+
+        {/* Sección Pasajero */}
+        <div className="rounded-xl bg-tertiary p-6 sm:p-8 shadow-lg">
+          <h3 className="text-lg sm:text-xl text-white font-semibold mb-4 sm:mb-6">Pasajero</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            {pasajeroRequirements.map((req, index) => (
+              <RequirementCard 
+                key={`pasajero-${index}`}
+                front={req.front}
+                back={req.back}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Requirements;
