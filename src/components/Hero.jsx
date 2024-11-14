@@ -41,13 +41,13 @@ const Hero = () => {
           <div className='flex flex-col md:flex-row items-center gap-8'>
             <Link 
               to="/registro"
-              className='w-full xl:w-auto flex items-center bg-secundary text-white justify-start text-left gap-4 -py-4 px-4 rounded-xl text-xl'
+              className='w-full xl:w-auto flex items-center bg-tertiary text-white justify-start text-left gap-4 -py-4 px-4 rounded-xl text-xl'
             >
               Regístrate <VscArrowSmallRight className='p-4 rounded-full box-content'/>
             </Link>
             <button 
               onClick={(e) => handleClick(e, '#testimonios')}
-              className='w-full xl:w-auto items-center bg-gray-300 text-gray-800 py-3 px-12 rounded-xl text-xl hover:bg-gray-400 transition-colors'
+              className='w-full xl:w-auto items-center bg-secundary text-white py-3 px-12 rounded-xl text-xl hover:bg-gray-500 transition-colors'
             > 
               Conócenos 
             </button>

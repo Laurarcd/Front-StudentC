@@ -74,8 +74,8 @@ const Testimonial = () => {
         </h2>
        
         <div className="flex justify-center mb-12">
-          <div className="w-24 h-1 bg-secundary"></div>
-          <div className="w-4 h-1 bg-primary ml-1"></div>
+          <div className="w-24 h-1 bg-tertiary"></div>
+          <div className="w-4 h-1 bg-secundary ml-1"></div>
         </div>
 
         <div 

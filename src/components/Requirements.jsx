@@ -38,7 +38,7 @@ const RequirementCard = ({ front, back }) => {
         `}
       >
         {/* Frente de la tarjeta */}
-        <div className="absolute w-full h-full backface-hidden rounded-xl p-3 sm:p-4 bg-gray-100 flex items-center justify-center shadow-md">
+        <div className="absolute w-full h-full backface-hidden rounded-xl p-3 sm:p-4 bg-white flex items-center justify-center shadow-md">
           <p className="text-xs sm:text-sm text-black-700 text-center font-medium">{front}</p>
           {isTouchDevice && (
             <div className="absolute bottom-2 right-2 text-[10px] text-gray-400">
@@ -48,8 +48,16 @@ const RequirementCard = ({ front, back }) => {
         </div>
 
         {/* Reverso de la tarjeta */}
-        <div className="absolute w-full h-full backface-hidden rounded-xl p-3 sm:p-4 bg-teal-50/90 rotate-y-180 flex items-center justify-center shadow-md">
-          <p className="text-xs sm:text-sm text-gray-700 text-center">{back}</p>
+        <div className="absolute w-full h-full backface-hidden rounded-xl p-3 sm:p-4 bg-pink-100 rotate-y-180 flex items-center justify-center shadow-md">
+          {Array.isArray(back) ? (
+            <ul className="list-disc text-xs sm:text-sm text-gray-700 space-y-0.5 pl-4">
+              {back.map((item, index) => (
+                <li key={index} className="text-left">{item}</li>
+              ))}
+            </ul>
+          ) : (
+            <p className="text-xs sm:text-sm text-gray-700 text-center">{back}</p>
+          )}
           {isTouchDevice && (
             <div className="absolute bottom-2 right-2 text-[10px] text-gray-400">
               Toca para volver
@@ -65,38 +73,70 @@ const Requirements = () => {
   const conductorRequirements = [
     {
       front: "Ser estudiante activo de la ESCOM",
-      back: "Deberás presentar tu credencial vigente y tener un correo institucional activo"
+      back: [
+        "Credencial vigente del IPN",
+        "Correo institucional activo",
+        "Boleta actual"
+      ]
     },
     {
       front: "Documentos del vehículo en regla",
-      back: "Tarjeta de circulación vigente, verificación y seguro del auto actualizado"
+      back: [
+        "Tarjeta de circulación vigente",
+        "Verificación actualizada",
+        "Seguro del auto vigente"
+      ]
     },
     {
       front: "Aceptar términos y condiciones",
-      back: "Lee detenidamente nuestros términos y política de privacidad antes de registrarte"
+      back: [
+        "Política de privacidad",
+        "Términos del servicio",
+        "Normas de la comunidad"
+      ]
     },
     {
       front: "Seguir protocolo de seguridad",
-      back: "Respetar las normas de tránsito y seguir los lineamientos de seguridad establecidos"
+      back: [
+        "Respetar señales de tránsito",
+        "Mantener límites de velocidad",
+        "Seguir rutas establecidas"
+      ]
     }
   ];
 
   const pasajeroRequirements = [
     {
       front: "Ser estudiante activo de la ESCOM",
-      back: "Deberás presentar tu credencial vigente y tener un correo institucional activo"
+      back: [
+        "Credencial vigente del IPN",
+        "Correo institucional activo",
+        "Boleta actual"
+      ]
     },
     {
       front: "Correo institucional validado",
-      back: "El correo debe terminar en @alumno.ipn.mx y verificar el código enviado"
+      back: [
+        "Dominio @alumno.ipn.mx",
+        "Verificación por código",
+        "Datos completos"
+      ]
     },
     {
       front: "Aceptar términos y condiciones",
-      back: "Lee detenidamente nuestros términos y política de privacidad antes de registrarte"
+      back: [
+        "Política de privacidad",
+        "Términos del servicio",
+        "Normas de la comunidad"
+      ]
     },
     {
       front: "Seguir protocolo de seguridad",
-      back: "Respetar los horarios establecidos y mantener un comportamiento adecuado"
+      back: [
+        "Puntualidad en paradas",
+        "Respetar horarios",
+        "Mantener conducta apropiada"
+      ]
     }
   ];
 
