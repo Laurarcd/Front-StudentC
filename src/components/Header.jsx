@@ -1,6 +1,6 @@
-// eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { User } from 'lucide-react';
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -20,7 +20,6 @@ const Header = () => {
   }, [scrolled]);
 
   const handleNavClick = (e, id) => {
-    // Solo aplicar scroll si estamos en la página principal
     if (location.pathname === '/') {
       e.preventDefault();
       setShowMenu(false);
@@ -39,7 +38,6 @@ const Header = () => {
     }
   };
 
-  // Solo mantenemos los enlaces de scroll
   const navLinks = [
     { href: '#inicio', text: 'Inicio' },
     { href: '#sobre-nosotros', text: 'Sobre nosotros' },
@@ -83,6 +81,16 @@ const Header = () => {
           </div>
         </nav>
 
+        {/* User Icon */}
+        <div className="flex items-center gap-4 ml-4">
+          <Link
+            to="/login"
+            className="text-secundary hover:text-secundary/70 transition-colors p-2"
+          >
+            <User className="h-6 w-6" />
+          </Link>
+        </div>
+
         {/* Botón de menú móvil */}
         <button
           onClick={() => setShowMenu(!showMenu)}
@@ -111,6 +119,13 @@ const Header = () => {
               {item.text}
             </a>
           ))}
+          <Link
+            to="/login"
+            className="text-secundary text-xl w-auto text-center 
+            transition-colors hover:text-secundary/70"
+          >
+            <User className="h-6 w-6" />
+          </Link>
         </nav>
       </div>
     </header>

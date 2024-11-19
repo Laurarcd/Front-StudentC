@@ -9,6 +9,7 @@ import Forms from './components/Forms';
 import Footer from './components/Footer';
 import Terminos from './components/Pages/Terminos';
 import Priv from './components/Pages/Priv';
+import FAQ from './components/Pages/FAQ';
 
 function HomePage() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/terminos" element={<Terminos />} />
           <Route path="/priv" element={<Priv/>} />
+          <Route path="/FAQ" element={<FAQ/>} />
         </Routes>
         <Footer />
       </div>

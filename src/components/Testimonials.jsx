@@ -7,21 +7,21 @@ const testimonios = [
     nombre: "Monse Vázquez",
     rol: "Estudiante ISC",
     testimonio: "Excelente servicio, me ha ayudado mucho a llegar segura a ESCOM. Los conductores siempre son puntuales y amables.",
-    imagen: "/api/placeholder/100/100"
+    imagen: "user1.jpg"
   },
   {
     id: 2,
     nombre: "Carlos Mendoza",
     rol: "Estudiante 6to semestre IA",
     testimonio: "Como conductor, la aplicación me ha permitido ayudar a otros estudiantes mientras comparto gastos. Una experiencia muy gratificante.",
-    imagen: "/api/placeholder/100/100"
+    imagen: "user2.jpg"
   },
   {
     id: 3,
     nombre: "Laura Sánchez",
     rol: "Estudiante 4to semestre ICD",
     testimonio: "Me encanta la comunidad que se ha formado. He conocido compañeros increíbles durante los viajes compartidos.",
-    imagen: "/api/placeholder/100/100"
+    imagen: "user3.jpg"
   },
 ];
 

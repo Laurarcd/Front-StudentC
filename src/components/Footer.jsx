@@ -40,6 +40,17 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+             {/* Soporte */}
+        <div>
+            <h2 className="text-xl font-semibold mb-4">Soporte</h2>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/FAQ" className="hover:underline">
+                  Preguntas frecuentes
+                </Link>
+              </li>
+              </ul>
+          </div>
           {/* Social Links */}
           <div>
             <h2 className="text-xl font-semibold mb-4">Redes Sociales</h2>
